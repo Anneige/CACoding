@@ -1,9 +1,13 @@
 package app;
 
+import interface_adapter.clear_users.ClearController;
+import interface_adapter.clear_users.ClearViewModel;
 import interface_adapter.login.LoginViewModel;
 import interface_adapter.signup.SignupController;
 import interface_adapter.signup.SignupPresenter;
 import interface_adapter.signup.SignupViewModel;
+import use_case.clear_users.ClearInputBoundary;
+import use_case.clear_users.ClearInputData;
 import use_case.signup.SignupUserDataAccessInterface;
 import entity.CommonUserFactory;
 import entity.UserFactory;
@@ -26,7 +30,15 @@ public class SignupUseCaseFactory {
 
         try {
             SignupController signupController = createUserSignupUseCase(viewManagerModel, signupViewModel, loginViewModel, userDataAccessObject);
-            return new SignupView(signupController, signupViewModel);
+            ClearViewModel clearViewModel = new ClearViewModel();
+            ClearInputBoundary ClearInputBoundary = new ClearInputBoundary() {
+                @Override
+                public void execute(ClearInputData clearInputData) {
+
+                }
+            };
+            ClearController clearController = new ClearController(ClearInputBoundary);
+            return new SignupView(signupController, signupViewModel, clearViewModel, clearController);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
         }

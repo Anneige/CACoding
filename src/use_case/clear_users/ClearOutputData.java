@@ -2,18 +2,21 @@ package use_case.clear_users;
 
 // Complete me
 
+import java.util.List;
+
 public class ClearOutputData {
 
-    private final String username;
+    private final List<String> listUsers;
     private boolean useCaseFailed;
 
-    public ClearOutputData(String username, boolean useCaseFailed) {
-        this.username = username;
+    public ClearOutputData(List<String> listUsers, boolean useCaseFailed) {
+        this.listUsers = listUsers;
         this.useCaseFailed = useCaseFailed;
     }
 
-    public String getUsername() {
-        return username;
+    public List<String> getListUsers() {
+        return listUsers;
     }
+
 
 }

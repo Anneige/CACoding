@@ -16,9 +16,8 @@ public class ClearController {
     }
 
 
-    public void execute(String username, String password) {
-        ClearInputData clearInputData = new ClearInputData(
-                username, password);
+    public void execute() {
+        ClearInputData clearInputData = new ClearInputData();
 
         clearUseCaseInteractor.execute(clearInputData);
     }

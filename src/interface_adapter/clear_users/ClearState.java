@@ -2,52 +2,41 @@ package interface_adapter.clear_users;
 
 // Complete me
 
+import java.util.Collections;
+import java.util.List;
+
 public class ClearState {
 
-    private String username = "";
-    private String usernameError = null;
-    private String password = "";
-    private String passwordError = null;
+    private List<String> listClearedUsers;
+    private List<String> listClearUsersError = null;
 
     public ClearState(interface_adapter.clear_users.ClearState copy) {
-        username = copy.username;
-        usernameError = copy.usernameError;
-        password = copy.password;
-        passwordError = copy.passwordError;
+        listClearedUsers = copy.listClearedUsers;
+        listClearUsersError = copy.listClearUsersError;
     }
 
     // Because of the previous copy constructor, the default constructor must be explicit.
     public ClearState() {}
 
-    public String getUsername() {
-        return username;
+    public void clearUsers() {
+        this.listClearedUsers = listClearedUsers;
     }
 
-    public String getUsernameError() {
-        return usernameError;
+    public List<String> getListClearedUsers() {
+        return listClearedUsers;
     }
 
-    public String getPassword() {
-        return password;
+    public List<String> getClearUsersError() {
+        return listClearUsersError;
+    }
+    public String toString() {
+        String users = "";
+        for (String i : listClearedUsers) {
+            users += i + '\'';
+
+        }
+        return users;
     }
 
-    public String getPasswordError() {
-        return passwordError;
-    }
-    public void clearUsername(String username) {
-        this.username = username;
-    }
-
-    public void clearUsernameError(String usernameError) {
-        this.usernameError = usernameError;
-    }
-
-    public void clearPassword(String password) {
-        this.password = password;
-    }
-
-    public void clearPasswordError(String passwordError) {
-        this.passwordError = passwordError;
-    }
 
 }
