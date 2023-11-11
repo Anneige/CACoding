@@ -45,9 +45,7 @@ public class SignupState {
         return repeatPasswordError;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public void setUsername(String username) { this.username = username; }
 
     public void setUsernameError(String usernameError) {
         this.usernameError = usernameError;

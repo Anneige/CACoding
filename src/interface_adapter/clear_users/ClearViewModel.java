@@ -13,7 +13,7 @@ public class ClearViewModel extends ViewModel{
 //    public final String PASSWORD_LABEL = "Enter password";
 
     public static final String CLEAR_BUTTON_LABEL = "Clear Users";
-    public static final String CANCEL_BUTTON_LABEL = "Cancel";
+//    public static final String CANCEL_BUTTON_LABEL = "Cancel";
 
     private ClearState state = new ClearState();
 
@@ -37,8 +37,6 @@ public class ClearViewModel extends ViewModel{
         support.addPropertyChangeListener(listener);
     }
 
-    public ClearState getState() {
-        return state;
-    }
+    public ClearState getState() {return state;}
 }
 

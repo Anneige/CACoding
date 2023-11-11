@@ -1,12 +1,13 @@
 package data_access;
 
 import entity.User;
+import use_case.clear_users.ClearUserDataAccessInterface;
 import use_case.signup.SignupUserDataAccessInterface;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterface {
+public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterface, ClearUserDataAccessInterface {
 
     private final Map<String, User> users = new HashMap<>();
 
@@ -26,4 +27,12 @@ public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterfa
     public void save(User user) {
         users.put(user.getName(), user);
     }
+
+    public void clear() {users.clear();}
+
+    @Override
+    public Map<String, User> getAccounts() {return users;}
+
+    @Override
+    public boolean isEmpty() {return users.isEmpty();}
 }

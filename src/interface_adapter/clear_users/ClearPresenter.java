@@ -30,6 +30,7 @@ public class ClearPresenter implements ClearOutputBoundary {
 //        signupState.getUsername();
         this.signupViewModel.setState(signupState);
         signupViewModel.firePropertyChanged();
+//        JOptionPane.showConfirmDialog(SignupView.this, state.toString());
 
         viewManagerModel.setActiveView(signupViewModel.getViewName());
         viewManagerModel.firePropertyChanged();
