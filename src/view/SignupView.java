@@ -93,8 +93,10 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
 
                             SignupView.this.clearController.execute();
 //                            ClearState state = clearViewModel.getState();
-//                            JOptionPane.showConfirmDialog(SignupView.this, state.toString());
-                        }
+                            JOptionPane.showMessageDialog(SignupView.this, currentState.getListClearedUsers());
+                            }
+//                        ClearState state = clearViewModel.getState();
+//                        JOptionPane.showMessageDialog(SignupView.this, state.toString());
 
                     }
                 }

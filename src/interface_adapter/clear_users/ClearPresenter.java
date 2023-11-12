@@ -7,11 +7,13 @@ import interface_adapter.signup.SignupState;
 import interface_adapter.signup.SignupViewModel;
 import use_case.clear_users.ClearOutputBoundary;
 import use_case.clear_users.ClearOutputData;
+import interface_adapter.clear_users.ClearState;
 
 public class ClearPresenter implements ClearOutputBoundary {
 
     private final ClearViewModel clearViewModel;
     private final SignupViewModel signupViewModel;
+    public ClearState clearState;
     private ViewManagerModel viewManagerModel;
 
     public ClearPresenter(ViewManagerModel viewManagerModel,
@@ -26,6 +28,7 @@ public class ClearPresenter implements ClearOutputBoundary {
     public void prepareSuccessView(ClearOutputData response) {
         // On success, switch to the sign up view.
 
+        clearState.setListClearedUsers(response.getListUsers());
         SignupState signupState = signupViewModel.getState();
 //        signupState.getUsername();
         this.signupViewModel.setState(signupState);

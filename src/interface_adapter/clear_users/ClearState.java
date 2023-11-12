@@ -36,12 +36,15 @@ public class ClearState {
     }
 
     public String toString() {
-        StringBuilder users = new StringBuilder();
-        for (String i : listClearedUsers) {
-            users.append(i).append('\n');
+//        StringBuilder users = new StringBuilder();
+//        for (String i : listClearedUsers) {
+//            users.append(i);
+//            users.append('\n');
+//
+//        }
+//        return users.toString();
+        return listClearedUsers.toString();
 
-        }
-        return users.toString();
     }
 
 
