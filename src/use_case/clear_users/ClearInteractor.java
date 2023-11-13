@@ -52,8 +52,7 @@ public class ClearInteractor implements ClearInputBoundary{
             clearPresenter.prepareFailView("No users to be cleared");}
 
         else{
-            Map<String, User> currentMapUsers = userDataAccessObject.getAccounts();
-            List<String> listUser = new ArrayList<String>(currentMapUsers.keySet());
+            List<String> listUser = userDataAccessObject.getAccounts();
             userDataAccessObject.clear();
 
             ClearOutputData clearOutputData = new ClearOutputData(listUser, false);

@@ -92,11 +92,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                             ClearState currentState = SignupView.this.clearViewModel.getState();
 
                             SignupView.this.clearController.execute();
-//                            ClearState state = clearViewModel.getState();
-                            JOptionPane.showMessageDialog(SignupView.this, currentState.getListClearedUsers());
                             }
-//                        ClearState state = clearViewModel.getState();
-//                        JOptionPane.showMessageDialog(SignupView.this, state.toString());
 
                     }
                 }
@@ -182,24 +178,22 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
      * React to a button click that results in evt.
      */
     public void actionPerformed(ActionEvent evt) {
-//        ClearState state = (ClearState) evt.getSource();
-//        JOptionPane.showMessageDialog(this, state.toString());
-
-
         JOptionPane.showConfirmDialog(this, "Cancel not implemented yet.");
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        SignupState state = (SignupState) evt.getNewValue();
-//        ClearState clearState = (ClearState) evt.getNewValue();
-        if (state.getUsernameError() != null) {
-            JOptionPane.showMessageDialog(this, state.getUsernameError());
+        if (evt.getSource().equals(signupViewModel)) {
+            SignupState state = (SignupState) evt.getNewValue();
+            if (state.getUsernameError() != null) {
+                JOptionPane.showMessageDialog(this, state.getUsernameError());
+            }
+        } else if (evt.getSource().equals(clearViewModel)) {
+            ClearState clearState = (ClearState) evt.getNewValue();
+            if (clearState.getClearUsersError() != null) {
+            JOptionPane.showMessageDialog(this, clearState.getListClearedUsers());
+            }
         }
 
-//        else if (clearState.getClearUsersError() != null) {
-//            JOptionPane.showMessageDialog(this, state.toString());
-//
-//        }
     }
 }

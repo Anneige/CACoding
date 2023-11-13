@@ -4,12 +4,13 @@ package use_case.clear_users;
 
 import entity.User;
 
+import java.util.List;
 import java.util.Map;
 
 public interface ClearUserDataAccessInterface {
     boolean isEmpty();
     void clear();
-    Map<String, User> getAccounts ();
+    List<String> getAccounts ();
 
 
 //    boolean existsByName(String identifier);

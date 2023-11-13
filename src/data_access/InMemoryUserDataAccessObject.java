@@ -4,7 +4,9 @@ import entity.User;
 import use_case.clear_users.ClearUserDataAccessInterface;
 import use_case.signup.SignupUserDataAccessInterface;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterface, ClearUserDataAccessInterface {
@@ -31,7 +33,10 @@ public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterfa
     public void clear() {users.clear();}
 
     @Override
-    public Map<String, User> getAccounts() {return users;}
+    public List<String> getAccounts() {
+
+        List<String> listUser = new ArrayList<String>(users.keySet());
+        return listUser;}
 
     @Override
     public boolean isEmpty() {return users.isEmpty();}
